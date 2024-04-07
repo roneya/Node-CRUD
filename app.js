@@ -17,7 +17,8 @@ app.get('/', (req, res) => {
 app.use("/api/products", middleware.restrict, productRoute);
 app.use("/api/users", userRoute);
 
-mongoose.connect('mongodb+srv://roneya:abc12345.mongodb.net/Node-API?retryWrites=true&w=majority&appName=NodeDB')
+//pw = X6vp-JrByFUmQqk
+mongoose.connect('mongodb+srv://roneya:abc@nodedb.zfkgyv6.mongodb.net/Node-API?retryWrites=true&w=majority&appName=NodeDB')
 .then(() => {
   console.log('Connected to the database!');
   app.listen(3000, () => {
