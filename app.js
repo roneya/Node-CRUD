@@ -1,16 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Product = require('./models/product.model.js');
 const productRoute = require('./routes/product.route.js');
+const userRoute = require('./routes/user.route.js');
+const cookieParser = require('cookie-parser');
+const middleware = require('./middleware/auth.middleware.js');
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.use("/api/products", productRoute);
+app.use("/api/products", middleware.restrict, productRoute);
+app.use("/api/users", userRoute);
 
 mongoose.connect('mongodb+srv://roneya:X6vp-JrByFUmQqk@nodedb.zfkgyv6.mongodb.net/Node-API?retryWrites=true&w=majority&appName=NodeDB')
 .then(() => {

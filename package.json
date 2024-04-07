@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
-    "mongoose": "^8.3.0"
+    "mongoose": "^8.3.0",
+    "uuid": "^9.0.1"
   },
   "name": "crud",
   "version": "1.0.0",
